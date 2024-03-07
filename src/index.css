@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --color-redPage: rgb(218, 0, 64);
+  --color-bluePage: #000b31;
+  --color-page: #000b31e0;
+}
+
+html {
+  font-size: 62.5%;
+  /*10px == 1rem*/
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Secular One', sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--color-page);
+  color: white;
+}

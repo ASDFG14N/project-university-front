@@ -1,0 +1,81 @@
+.wrapper-video::before{
+  content: "";
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  background-color: #000;
+  height: calc(100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.959), transparent);
+}
+
+.wrapper-video{
+  transition: all 0.08s ease;
+}
+
+
+.video-timeline{
+  height: 5px;
+  width: 100%;
+}
+
+.progress-area{
+  height: 5px;
+  width: 100%;
+  background: #474747;
+}
+
+.progress-area span{
+  position: absolute;
+  left: 50%;
+  top: -25px;
+  transform: translateX(-35%);
+}
+
+.progress-bar{
+  width: 0%;
+  height: 100%;
+  background: red;
+}
+
+.progress-area .progress-bar::before{
+  content: "";
+  height: 13px;
+  right: 0;
+  left: 0%;
+  width: 13px;
+  background-color: red;
+  position: absolute;
+  transform: translateY(-30%);
+  border-radius: 50%;
+}
+
+.progress-area span, .progress-bar::before{
+  display: none;
+}
+.video-timeline:hover .progress-area span, 
+.video-timeline:hover .progress-bar::before{
+  display: block;
+  cursor: pointer;
+}
+
+.containerPlayer.fullscreen{
+  max-width: 100%;
+  width: 100%;
+}
+
+.containerPlayer.show-controls .wrapper-video{
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.13s ease;
+}
+
+.list-episodes{
+  opacity: 0;
+  transition: opacity 0.10s ease;
+}
+
+.list-episodes.show{
+  opacity: 1;
+}

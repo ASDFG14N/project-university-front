@@ -1,0 +1,43 @@
+footer {
+  background: -webkit-linear-gradient(#000b31c9, #000b31e5, #000b31);
+}
+
+
+.box3 {
+  max-width: 430px;
+}
+
+
+.fa-facebook-f {
+  padding: 10px 14px;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+
+.fa-instagram {
+  padding: 10px 14px;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.fa-instagram:hover {
+  background: -webkit-linear-gradient(#d917cb, #ffba38);
+  background: -moz-linear-gradient(#d917cb, #ffba38);
+  background: -o-linear-gradient(#d917cb, #ffba38);
+}
+
+.fa-github {
+  padding: 10px 14px;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}

@@ -1,0 +1,35 @@
+:root {
+  --sidebar-color: #000b31;
+  --primary-color: rgb(218, 0, 64);
+  --toggle-color: #ddd;
+  --text-color: #ffff;
+  /* Transition */
+  --tran-02: all 0.2s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+.sidebar li a:hover {
+  background: var(--primary-color);
+  transition: var(--tran-02);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+  color: var(--text-color);
+}
+.sidebar {
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  transition: var(--tran-05);
+  box-shadow: 1px 0px 15px rgba(253, 246, 246, 0.4);
+}
+
+.sidebar .text {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  transition: var(--tran-04);
+}
+
+.sidebar li a {
+  transition: var(--tran-04);
+}
