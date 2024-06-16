@@ -14,6 +14,7 @@ import { AnimeProvider } from "./context/AnimeContext";
 
 import "./index.css";
 import AdminPage from "./pages/AdminPage";
+import AnimeDetails from "./pages/AnimeDetails";
 
 function App() {
   return (
@@ -28,10 +29,11 @@ function App() {
               <Route path="/admin" element={<AdminPage />}></Route>
               <Route path="/" element={<HomePage />}></Route>
               <Route path="/animes" element={<AnimesPage />}></Route>
-              <Route path="/peliculas" element={<PeliculasPage />}></Route>
+              <Route path="/movies" element={<PeliculasPage />}></Route>
               <Route path="/populares" element={<PopularesPage />}></Route>
+              <Route path="animes/details/:id" element={<AnimeDetails />}></Route>
               <Route path="/about" element={<AcercaDePage />}></Route>
-              <Route path="/watch/:id" element={<Watch />}></Route>
+              <Route path="/watch" element={<Watch />}></Route>
             </Route>
           </Routes>
         </Router>

@@ -1,12 +1,17 @@
+/* eslint-disable react/prop-types */
 import "./SearchBox.css";
 
-function SearchBox() {
+function SearchBox({setQuery}) {
+
   return (
     <div className="search">
       <input
         type="text"
         className="text-black search-text"
         placeholder="Buscar..."
+        onChange={(e) => {
+          setQuery(e.target.value);
+        }}
       />
       <div
         className="absolute top-0 left-0 flex justify-center items-center 

@@ -2,10 +2,10 @@
 import SearchBox from "../components/SeachBox/SearchBox";
 import Dropdown from "../components/Dropdown";
 
-function SecundaryNav({ isHovered, handleMouseEnter, handleMouseLeave }) {
+function SecundaryNav({ isHovered, handleMouseEnter, handleMouseLeave, setQuery }) {
   return (
     <div className="flex items-center gap-16">
-      <SearchBox />
+      <SearchBox setQuery={setQuery}/>
       <div className="cursor-pointer">
         <i className="fa-regular fa-bell text-4xl ml-28"></i>
       </div>

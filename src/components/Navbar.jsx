@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import PrimaryNav from "./PrimaryNav";
 import SecundaryNavContainer from "../containers/SecundaryNavContainer";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({setQuery}) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   window.onscroll = () => {
@@ -31,7 +32,7 @@ const Navbar = () => {
         </NavLink>
         <ul id="navbar" className="flex items-center justify-between w-[95%]">
           <PrimaryNav />
-          <SecundaryNavContainer />
+          <SecundaryNavContainer setQuery={setQuery} />
         </ul>
       </nav>
     </header>

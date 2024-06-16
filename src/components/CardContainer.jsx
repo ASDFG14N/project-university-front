@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function CardContainer({ title, poster_url }) {
+function CardContainer({id, title, poster_url }) {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="card">
@@ -20,7 +20,7 @@ function CardContainer({ title, poster_url }) {
         >
           <h3 className="title mb-10 px-5">{title}</h3>
           <div className="flex mb-10">
-            <Link to="/watch?id=6">
+            <Link to={`details/${id}`}>
               <i className="fa-solid fa-circle-play mr-6 text-[3rem]"></i>
             </Link>
             <div>

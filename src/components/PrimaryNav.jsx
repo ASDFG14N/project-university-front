@@ -6,7 +6,7 @@ function PrimaryNav() {
   const links = [
     { name: "Inicio", link: "/" },
     { name: "Animes", link: "/animes" },
-    { name: "Películas", link: "/peliculas" },
+    { name: "Películas", link: "/movies" },
     { name: "Populares", link: "/populares" },
     { name: "Acerca", link: "/about" },
   ];

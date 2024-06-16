@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import RowContainer from "../containers/RowContainer";
 
-function Table({animes}) {
+function Table({ animes, query }) {
   return (
     <table className="w-full text-left rtl:text-right text-white dark:text-gray-400">
       <thead className="text-2xl uppercase sticky top-0 bg-[#000b31]">
@@ -30,9 +30,11 @@ function Table({animes}) {
         </tr>
       </thead>
       <tbody>
-        {animes.map((anime, index) => (
-          <RowContainer key={index} data={anime} />
-        ))}
+        {animes
+          .filter((anime) => anime.title.toLowerCase().includes(query))
+          .map((anime, index) => (
+            <RowContainer key={index} data={anime} />
+          ))}
       </tbody>
     </table>
   );

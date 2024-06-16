@@ -12,7 +12,15 @@ import CardSlide from "../components/CardSlide";
 import Slider from "../components/Slider";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
+import { useAnimes } from "../hooks/useAnimes";
+import { useEffect } from "react";
 function HomePage() {
+  const { movies, getMovies } = useAnimes();
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]);
+
   return (
     <>
       <Navbar></Navbar>
@@ -34,15 +42,20 @@ function HomePage() {
               itaque nobis, dolore ipsam?
             </p>
             <div className="mt-8">
-              <Link className="bg-[#DA0040] rounded-md mr-8 px-5 py-2 text-3xl">Ver</Link>
-              <Link className="bg-[#DA0040] rounded-md px-5 py-2 text-3xl">Mi Lista</Link>
+              <Link className="bg-[#DA0040] rounded-md mr-8 px-5 py-2 text-3xl">
+                <i className="fa-solid fa-play mr-3"></i> Ver
+              </Link>
+              <Link className="bg-[#DA0040] rounded-md px-5 py-2 text-3xl">
+                <i className="fa-solid fa-bookmark mr-3"></i>
+                Mi Lista
+              </Link>
             </div>
           </div>
-          <div>
-          </div>
+          <div></div>
         </div>
       </div>
       <Container>
+        <h3 className="ml-[4rem] text-4xl mb-3">Top del día</h3>
         <Slider id={1}>
           <CardSlide img={img1} />
           <CardSlide img={img2} />
@@ -55,6 +68,9 @@ function HomePage() {
           <CardSlide img={img5} />
           <CardSlide img={img6} />
         </Slider>
+        <h3 className="ml-[4rem] text-4xl mt-10 mb-3">
+          Recientemente añadidos
+        </h3>
         <Slider id={2}>
           <CardSlide img={img1} />
           <CardSlide img={img2} />
@@ -67,7 +83,20 @@ function HomePage() {
           <CardSlide img={img5} />
           <CardSlide img={img6} />
         </Slider>
+        <h3 className="ml-[4rem] text-4xl mt-10 mb-3">Películas mas vistas</h3>
+        <Slider id={3}>
+          {movies.map((anime, index) => (
+            <CardSlide
+              key={index}
+              img={`/src/assets/posters/${anime.poster_url}`}
+            />
+          ))}
+          <CardSlide img={img1} />
+          <CardSlide img={img2} />
+          <CardSlide img={img3} />
+        </Slider>
       </Container>
+      <div className="my-[4rem]"></div>
       <Footer></Footer>
     </>
   );

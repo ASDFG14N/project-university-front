@@ -1,0 +1,1 @@
+export const swbaseUrl = "https://streamwish.to/e/";

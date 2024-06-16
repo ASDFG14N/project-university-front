@@ -3,19 +3,26 @@ import Container from "../components/Container";
 import Footer from "../components/Footer/Footer";
 import CardContainer from "../components/CardContainer";
 import ComboBox from "../components/ComboBox/ComboBox";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAnimes } from "../hooks/useAnimes";
 import { genres } from "../constants/genres";
 import { state } from "../constants/state";
+import LoadingPage from "./LoadingPage";
 
 function AnimesPage() {
   const { animes, getAnimes } = useAnimes();
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     getAnimes();
   }, [getAnimes]);
+
+  if (!animes) {
+    return <LoadingPage />;
+  }
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar setQuery={setQuery}></Navbar>
       <Container margin={true}>
         <div className="flex gap-5 mb-12">
           <ComboBox label="Género" items={genres} />
@@ -29,45 +36,16 @@ function AnimesPage() {
               "repeat(auto-fit, minmax(min(21rem, 100%), 1fr))",
           }}
         >
-          {animes.map((anime, index) => (
-            <CardContainer
-              key={index}
-              title={anime.title}
-              poster_url={`/src/assets/posters/${anime.poster_url}`}
-            />
-          ))}
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
-          <CardContainer
-            title={"xdd"}
-            poster_url={`/src/assets/posters/${"img6.jpg"}`}
-          />
+          {animes
+            .filter((anime) => anime.title.toLowerCase().includes(query))
+            .map((anime, index) => (
+              <CardContainer
+                key={index}
+                id={anime.anime_id}
+                title={anime.title}
+                poster_url={`/src/assets/posters/${anime.poster_url}`}
+              />
+            ))}
         </div>
       </Container>
       <Footer></Footer>

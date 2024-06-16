@@ -24,14 +24,15 @@ function FormAnime() {
     }
     const jsonData = JSON.stringify({
       title: name.value,
-      poster: dropzone.files[0].name.toString(),
+      poster_url: dropzone.files[0].name.toString(),
       synopsis: synopsis.value,
       status: Number(status.value),
       year: Number(year.value),
       type: type.value,
       genres: genres,
     });
-    createAnime(jsonData)
+    await createAnime(jsonData)
+    alert("Anime correctamente creado");
   };
   return (
     <div

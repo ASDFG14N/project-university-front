@@ -63,7 +63,7 @@ function AdminPage() {
             </div>
           </div>
           <div className="w-full overflow-y-scroll max-h-[92%]">
-            <Table animes={animes} />
+            <Table animes={animes} query={query} />
           </div>
         </div>
       </div>
